@@ -60,10 +60,8 @@ html,body{
     font-size: 1.5rem;
     background:rgba(255,255,255,0.07);
     border:none;
+    outline:none;
 }
-.calculator-buttons button:hover{
+.calculator-buttons button:active{
     background:rgba(255,255,255,0.2);
-}
-.calculator-buttons-operations{
-    background:rgba(255,255,255,1);
 }
