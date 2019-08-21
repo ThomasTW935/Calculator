@@ -11,13 +11,13 @@ $(document).ready(function(){
         switch(buttonValue){
             case 'C': display.val(""); break;
             case '=': display.val(calculate(display.val())); break;
-            case 'x': buttonValue = '*';
             default : const displayValue = display.val()+buttonValue;
             display.val(displayValue); break;
         }
         
     }); 
 });
+var historyCount = 0;
 function calculate(string){
     var answer = eval(string);
     console.log(answer);
@@ -26,7 +26,14 @@ function calculate(string){
     if(difference > 5){
         answer = answer.toString().slice(0,pointLastIndex+5);
     }
-    $(".calculator-history span").text(string);
+    
+    historyCount++;
+    var historyDisplay = $(".calculator-history span").text() + " "+string;
+    if(historyCount >= 4){
+        historyDisplay = string;
+    }
+    console.log(historyCount);
+    $(".calculator-history span").text(historyDisplay);
     return answer;
 }
 
